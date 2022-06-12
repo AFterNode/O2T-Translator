@@ -1,0 +1,64 @@
+# Here is the list of packages automatically derived by QPT
+# you can ignore the dependent packages in the main package and only care about the main package
+# For example, you need to install paddlepaddle and pillow, because paddlepaddle relies on pillow, so you only need to install paddlepaddle.
+# ---------------------------------------------------------------------
+# QPT Home:        https://github.com/GT-ZhangAcer/QPT
+# ---------------------------------------------------------------------
+# 
+# -------------Mainly depends on package analysis results--------------
+
+mixaclib==2.2.0
+easyocr==1.5.0
+translate==3.6.1
+torchvision==0.12.0
+pyqt5==5.15.6
+
+# ----------------------Ignored dependent packages---------------------
+#you_get==0.4.1555
+#wheel==0.37.1
+#tqdm==4.64.0
+#torchaudio==0.11.0
+#qpt==1.0b3.dev10
+#pywin32==304
+#pyside2==5.15.2.1
+#pyinstaller==5.0.1
+#pycord==0.1.1
+#pyautogui==0.9.53
+#opencv_python==4.5.5.64
+#mcstatus==9.0.4
+#matplotlib==3.5.2
+#jieba==0.42.1
+#bilili==1.4.11
+#bilibili==0.0.1
+#bilibili_api==9.1.0
+#aiosignal==1.2.0
+
+# ----------------------Ignored sub dependent packages---------------------
+
+# -----Dependencies of easyocr
+#scikit_image
+#numpy
+#python_bidi
+#pyyaml
+#torch
+#opencv_python_headless<=4.5.4.60
+#pillow
+#torchvision>=0.5
+#scipy
+
+# -----Dependencies of translate
+#requests
+#lxml
+#click
+#libretranslatepy==2.1.1
+
+# -----Dependencies of torchvision
+#pillow!=8.3.*,>=5.3.0
+#numpy
+#requests
+#torch==1.11.0
+#typing_extensions
+
+# -----Dependencies of pyqt5
+#pyqt5_qt5>=5.15.2
+#pyqt5_sip<13,>=12.8
