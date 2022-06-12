@@ -51,6 +51,9 @@ class QDockWidgetDemo(QMainWindow, Ui_TranslatorMain):
         for t in text_lst:
             text = text + t
         result = translator.baidu.translate(self.appid, self.api_key, text).json()
+        if result.get("error_code") is not None:
+            print("[Window] Unable to get translation")
+            return
         self.pte_result.setPlainText(translator.baidu.analyse_result(result))
 
 def run(ocr_reader: easyocr.Reader,
