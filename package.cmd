@@ -2,7 +2,12 @@
 @echo Packaging launcher EXE...
 pyinstaller -F launcher.py
 
+@echo Creating dir...
+del .\Release\app
+mkdir .\Release\app
+
 @echo Copying utils...
+mkdir .\Release\app\utils
 xcopy .\utils .\Release\app\utils
 xcopy .\utils\translator .\Release\app\utils\translator
 xcopy .\utils\win32 .\Release\app\utils\win32
