@@ -1,6 +1,6 @@
 from PIL import ImageGrab
-import os
 
+# 截屏函数
 def print_screen(top_left_x: int,
                  top_left_y: int,
                  bottom_right_x: int,
