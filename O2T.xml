@@ -1,8 +1,8 @@
 <project>
     <shortName>O2T</shortName>
     <fullName>O2T Translator</fullName>
-    <version>0.1.0</version>
-    <licenseFile>F:\PyProj\O2T_Translator\LICENSE</licenseFile>
+    <version>0.2.0</version>
+    <licenseFile>F:/PyProj/O2T_Translator/LICENSE</licenseFile>
     <defaultLanguage>zh_CN</defaultLanguage>
     <allowLanguageSelection>1</allowLanguageSelection>
     <componentList>
