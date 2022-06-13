@@ -1,7 +1,7 @@
 from . import baidu
 from . import youdao
 
-__TRANSLATOR_LST = ["baidu", "youdao"]
+TRANSLATOR_LST = ["baidu", "youdao"]
 
 def translate(mode, appid, key, content):
     if mode == "baidu":

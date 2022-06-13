@@ -15,7 +15,7 @@ __DEFAULT_CONFIG__ = "# OCR语言\n" \
                      "ocr-lang: ja\n" \
                      "# 支持以下接口：\n" \
                      "# baidu - 百度翻译\n" \
-                     "# youdao - 有道智云" \
+                     "# youdao - 有道智云\n" \
                      "translator: baidu\n" \
                      "\n" \
                      "# 翻译API APPID\n" \

@@ -42,7 +42,7 @@ class QDockWidgetDemo(QMainWindow, Ui_TranslatorMain):
         self.pbtn_translate.clicked.connect(lambda: self.translate())   # 截图并翻译
 
     def translate(self):
-        if not self.translator in translator.__TRANSLATOR_LST:
+        if not self.translator in translator.TRANSLATOR_LST:
             print("[Window] Invalid translator")
             self.pte_result.setPlainText("无效翻译设置")
             return
