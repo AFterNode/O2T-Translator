@@ -1,6 +1,10 @@
 # AFterNode O2T Translator
+[Gitee](https://gitee.com/afternode/t2o-translator) | 
+[Github](https://github.com/AFterNode/O2T-Translator) |
+[AFterNode](https://afternode.cn)
+
 ### 如何使用
-安装 [Python](https://python.org/) 3.8+ 后运行```python -m pip install -r requirements.txt```
+安装 [Python](https://python.org/) 3.8+ 后运行```*p*ython -m pip install -r requirements.txt```
 
 如需GPU加速，请参考 [此处](https://pytorch.org/get-started/locally/) 安装PyTorch CUDA版本
 
