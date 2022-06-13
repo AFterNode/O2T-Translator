@@ -4,6 +4,7 @@ import sys
 import easyocr
 import yaml
 from PyQt5.QtWidgets import *
+from PyQt5 import QtCore
 from PyQt5.QtCore import *
 
 from mainwindow import Ui_TranslatorMain
@@ -28,6 +29,7 @@ class QDockWidgetDemo(QMainWindow, Ui_TranslatorMain):
         self.appid = config['appid']
         self.api_key = config['key']
 
+        # 截图悬浮窗
         self.dockWidget = QDockWidget('请将此窗口置于截图区域', self)
         self.dockWidget.setFloating(True)
         self.dockWidget.setWindowOpacity(0.3)
@@ -37,25 +39,30 @@ class QDockWidgetDemo(QMainWindow, Ui_TranslatorMain):
         self.setupUi(self)
         self.show()
 
-        self.pbtn_translate.clicked.connect(lambda: self.translate())
+        self.pbtn_translate.clicked.connect(lambda: self.translate())   # 截图并翻译
 
     def translate(self):
+        if not self.translator in translator.__TRANSLATOR_LST:
+            print("[Window] Invalid translator")
+            self.pte_result.setPlainText("无效翻译设置")
+            return
+
         print("Making screenshot....")
-        dockGeo = self.dockWidget.geometry()
-        top_left = dockGeo.topLeft()
-        bottom_right = dockGeo.bottomRight()
-        prtscr.print_screen(top_left.x(), top_left.y(), bottom_right.x(), bottom_right.y(), "prtscr.png")
+        dockGeo = self.dockWidget.geometry()    # 窗口位置
+        top_left = dockGeo.topLeft()    # 窗口左上角
+        bottom_right = dockGeo.bottomRight()    # 窗口右下角
+        prtscr.print_screen(top_left.x(), top_left.y(), bottom_right.x(), bottom_right.y(), "prtscr.png")   # 截图
         print("Starting OCR...")
-        text_lst = ocr.scan(self.reader, "prtscr.png")
+        text_lst = ocr.scan(self.reader, "prtscr.png")  # 扫描截图图片
         text = ''
         for t in text_lst:
-            text = text + t
-        result = translator.baidu.translate(self.appid, self.api_key, text).json()
-        if result.get("error_code") is not None:
-            print("[Window] Unable to get translation")
-            return
-        self.pte_result.setPlainText(translator.baidu.analyse_result(result))
+            text = text + t  # 合并扫描结果
+        result = translator.translate(self.translator, self.appid, self.api_key, text).json()  # 调用翻译API
+        # 翻译API错误
 
+        self.pte_result.setPlainText(translator.analyse(self.translator, result))   # 输出结果
+
+# 窗口启动函数
 def run(ocr_reader: easyocr.Reader,
         config: dict):
     app = QApplication(sys.argv)

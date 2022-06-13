@@ -4,10 +4,13 @@ import hashlib
 import urllib
 
 def translate(appid: str, key: str, content: str):
+    # UA标识
     header = {
         'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36',
         'Content-Type': 'application/x-www-form-urlencoded'
     }
+
+    # 生成签名
     print("[Translator] Generating BaiduAPI sign...")
     salt = random.randint(1, 100)
     if not isinstance(str(appid), str):
@@ -43,5 +46,8 @@ def translate(appid: str, key: str, content: str):
     return resp
 
 def analyse_result(result: dict):
+    if result.get("error_code") is not None:
+        print("[Translate] Unable to get translation")
+        return "翻译失败"
     trans_result = result['trans_result'][0]['dst']
     return trans_result
