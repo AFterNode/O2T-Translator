@@ -1,3 +1,7 @@
+<h1>THE END</h1>
+
+---
+
 # AFterNode O2T Translator
 [Gitee](https://gitee.com/afternode/t2o-translator) | 
 [Github](https://github.com/AFterNode/O2T-Translator) |
